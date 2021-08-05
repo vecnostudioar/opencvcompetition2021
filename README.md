@@ -11,18 +11,21 @@ The project is running in Python 3.9.5.
 **Libraries**
 Run the install_requirements.py script to install all the requeried libraries for AOK to work
 Here is the luxonis official documentation page if you have any problem running it
-`<https://docs.luxonis.com/en/latest/>`_
+
+[docs.luxonis.com/en/latest/](https://docs.luxonis.com/en/latest/)
 
 Youy need also install PyBluez to run the bluetooth connection
 ::
 
 	pip install pybluez
 
-`<https://github.com/pybluez/pybluez>`_
+
+[https://github.com/pybluez/pybluez](https://github.com/pybluez/pybluez)
 
 
 Run the Python Script
 """""""""""""""""""""
+
 ::
 
 	python3 cyclist_guardian-v5.py
@@ -43,4 +46,5 @@ bracelets-arduino
 Here is the arduino code to load on ESP32 lolin, one for the master and one for the slave (client)
 
 You can make the full functionaly bracelts with the follow diagram:
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/bracelets-diagram.jpg?raw=true)
+![bracelets diagram](https://github.com/vecnostudioar/opencvcompetition2021/blob/main/bracelets-diagram.jpg)
+
