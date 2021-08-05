@@ -1,17 +1,19 @@
 # opencvcompetition2021 | AI CYCLIST GUARDIAN
 
-Here are all the project code including the stl 3d priles too.
+Here are all the project code including: python script, arduino scripts and the stls 3d files.
 
 ## main-python script
 
-In the folder main-python is the python , the core of the project.
-The project is running in Python 3.9.5.
+In the folder main-python is the python code to work with the OAK-D and make the vehicles detection and the logic to create the formatted data to send to the bracelets... the core of the project.
+
+The project is running in the raspberry pi3B+ raspbian OS with Python 3.7.3. and if you want to run in windows 10 you need Python 3.9.5
 
 **Libraries**
-Run the install_requirements.py script to install all the requeried libraries for AOK to work
-Here is the luxonis official documentation page if you have any problem running it
+Run the install_requirements.py script to install all the libraries needed for AOK to work
+Here is the luxonis official documentation page 
 
 [docs.luxonis.com/en/latest/](https://docs.luxonis.com/en/latest/)
+
 
 Youy need also install PyBluez to run the bluetooth connection
 
@@ -39,6 +41,7 @@ Youy need also install PyBluez to run the bluetooth connection
 
 Here is the arduino code to load on ESP32 lolin, one for the master and one for the slave (client)
 
-You can make the full functionaly bracelts with the follow diagram:
+You can make the full functionality bracelets with the follow diagram:
+
 ![bracelets diagram](https://github.com/vecnostudioar/opencvcompetition2021/blob/main/bracelets-diagram.jpg)
 
