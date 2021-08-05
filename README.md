@@ -8,7 +8,8 @@ In the folder main-python is the python code to work with the OAK-D and make the
 
 The project is running in the raspberry pi3B+ raspbian OS with Python 3.7.3. and if you want to run in windows 10 you need Python 3.9.5
 
-**Libraries**
+###### Libraries
+
 Run the install_requirements.py script to install all the libraries needed for AOK to work
 Here is the luxonis official documentation page 
 
