@@ -2,8 +2,7 @@
 
 Here are all the project code including the stl 3d priles too.
 
-main-python script
-------------------
+## main-python script
 
 In the folder main-python is the python , the core of the project.
 The project is running in Python 3.9.5.
@@ -15,7 +14,6 @@ Here is the luxonis official documentation page if you have any problem running 
 [docs.luxonis.com/en/latest/](https://docs.luxonis.com/en/latest/)
 
 Youy need also install PyBluez to run the bluetooth connection
-::
 
 	pip install pybluez
 
@@ -23,10 +21,7 @@ Youy need also install PyBluez to run the bluetooth connection
 [https://github.com/pybluez/pybluez](https://github.com/pybluez/pybluez)
 
 
-Run the Python Script
-"""""""""""""""""""""
-
-::
+###### Run the Python Script
 
 	python3 cyclist_guardian-v5.py
 
@@ -40,8 +35,7 @@ Run the Python Script
 | -i     | --invertbracelets  | Invert Bracelets set signal left/right |
 
 
-bracelets-arduino
------------------
+## bracelets-arduino
 
 Here is the arduino code to load on ESP32 lolin, one for the master and one for the slave (client)
 
