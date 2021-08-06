@@ -1,31 +1,19 @@
 /*
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/esp-now-esp32-arduino-ide/
-  
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files.
-  
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
+  Mentions of documentations used: https://RandomNerdTutorials.com/esp-now-esp32-arduino-ide/
 */
 
-#define Threshold 105  // Greater the value, more the sensitivity -- 100 Ok for battery operation (Ale)
-#define relay  19 //built in LED 22 lolin
+#define Threshold 105  // Greater the value, more the sensitivity -- 100 Ok for battery operation 
+#define relay  19 
 
 //bool autoOffFlag = 0;
 int autoOffCounter = 0;
 int autoOffValue = 20; //Segundos.
 
-/*
-34 y 35 tienen * qué será??
- */
 
 int stepDelay = 30;
 bool sync = 0;
 
 const int led6 = 12; //Red blinking LED
-
-
  
 //RTC_DATA_ATTR int bootCount = 0;
 touch_pad_t touchPin;
@@ -43,11 +31,8 @@ int timeOff = 0;
 // Structure example to receive data
 // Must match the sender structure
 typedef struct struct_message {
-//    char a[32];
     int b;
     int c;
-//    String d;
-//    bool e;
 } struct_message;
 
 // Create a struct_message called myData
@@ -61,12 +46,7 @@ struct_message myData;
     Serial.println(myData.c);
   
   autoOffCounter = 0;
-  /*    
-      if(sync == 0){
-      sync = 1;
-      autoOffSleep();
-      }
-  */
+  
   valueMap();
 
 }
@@ -78,10 +58,9 @@ struct_message myData;
 
 int driveOutput() {
   //...
-  // Inicio del thread  
+  // start thread  
   CThreadBegin();
 
-  // bucle infinito del thread
   while(1){
 
       if(timeOn == 0){
@@ -91,29 +70,28 @@ int driveOutput() {
         break;
       }
       
-      if(timeOff == 0){          // Me parece que en este caso no tiene sentido usar timeOff = 0
+      if(timeOff == 0){
         digitalWrite(relay, LOW);
         digitalWrite(LED_BUILTIN, HIGH);
         //Serial.println("ON");
         break;
       }
   
-      //getTime(); // No hace falta que lo haga acá si lo hago en el loop.
+
       digitalWrite(relay, LOW);
       digitalWrite(LED_BUILTIN, HIGH);
-   // Serial.print("Apagado   "); Serial.print(ciclo); Serial.print(" "); Serial.println(timeOff);
+
       CThreadSleep(timeOff);
       
-      //getTime(); // No hace falta que lo haga acá si lo hago en el loop.
       digitalWrite(relay, HIGH);
       digitalWrite(LED_BUILTIN, LOW);
-   // Serial.print("Encendido "); Serial.print(ciclo); Serial.print(" "); Serial.println(timeOn);    
+ 
       CThreadSleep(timeOn);    
 
     
   }
   
-  // fin del thread
+  // end of thread
   CThreadEnd();   
 } 
 
@@ -167,14 +145,14 @@ void setup() {
 }
  
 void loop() {
-driveOutput();
+  driveOutput();
 
   if(myData.c == -1){
   autoOffSleep();}else{
   autoOffSleepBlink();}
 
-sleepByApp();
-turnLight();
+  sleepByApp();
+  turnLight();
 }
 
 
@@ -237,15 +215,6 @@ void print_wakeup_touchpad() {
   switch (touchPin)
   {
     case 0  : Serial.println("Touch detected on GPIO 4"); break;
-    /*
-        case 1  : Serial.println("Touch detected on GPIO 0"); break;
-        case 2  : Serial.println("Touch detected on GPIO 2"); break;
-        case 3  : Serial.println("Touch detected on GPIO 15"); break;
-        case 4  : Serial.println("Touch detected on GPIO 13"); break;
-        case 5  : Serial.println("Touch detected on GPIO 12"); break;
-        case 6  : Serial.println("Touch detected on GPIO 14"); break;
-        case 7  : Serial.println("Touch detected on GPIO 27"); break;
-    */
     case 1  : Serial.println("Touch detected on GPIO 33"); break;
     //  case 9  : Serial.println("Touch detected on GPIO 32"); break;
 
@@ -257,9 +226,9 @@ void print_wakeup_touchpad() {
 void callback() {
 
   /*//placeholder callback function
- digitalWrite(relay, HIGH);
- delay(200);
- digitalWrite(relay, LOW);
+   digitalWrite(relay, HIGH);
+   delay(200);
+   digitalWrite(relay, LOW);
 */
  
 }

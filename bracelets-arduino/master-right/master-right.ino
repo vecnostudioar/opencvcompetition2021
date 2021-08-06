@@ -1,12 +1,5 @@
 /*
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/esp-now-esp32-arduino-ide/
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files.
-
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
+  Mentions of documentations used: https://RandomNerdTutorials.com/esp-now-esp32-arduino-ide/
 */
 #define Threshold 105 /* Greater the value, more the sensitivity */
 #define relay  19 //built in LED 22 lolin
@@ -44,9 +37,7 @@ uint8_t broadcastAddress[] = {0xC4, 0x4F, 0x33, 0x6B, 0xF4, 0x69};
 //esp32 jorge
 //C4:4F:33:6B:F4:69
 
-//80:7D:3A:C5:39:48
-
-// Structure example to send data
+// Structure to send data
 // Must match the receiver structure
 typedef struct struct_message {
   //  char a[32];
@@ -90,8 +81,6 @@ int driveOutput() {
       break;
     }
 
-    
-    
 
     //getTime(); // No hace falta que lo haga acá si lo hago en el loop.
     digitalWrite(relay, LOW);
@@ -134,10 +123,7 @@ void setup() {
 
    // Init Serial Monitor
   Serial.begin(19200);
-  SerialBT.begin("D-Gloves"); //Bluetooth device name
- 
-  //digitalWrite(relay, LOW); //El built in es active LOW
-
+  SerialBT.begin("AI-Bracelet"); //Bluetooth device name
 
   //Print the wakeup reason for ESP32 and touchpad too
   print_wakeup_reason();
@@ -177,10 +163,6 @@ void setup() {
 }
 
 void loop() {
-
-  //digitalWrite(relay,HIGH);
-  //delay(150);
-  //digitalWrite(relay,LOW);
 
   getBT();
   driveOutput();

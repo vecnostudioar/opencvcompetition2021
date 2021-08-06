@@ -2,8 +2,6 @@
 // int autoOffcounter = 0;
 // int autoOffValue = 10; //Segundos.
 
-
-
 int autoOffSleep() {
   //...
   // Inicio del thread

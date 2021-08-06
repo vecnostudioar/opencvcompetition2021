@@ -34,7 +34,7 @@ Youy need also install PyBluez to run the bluetooth connection
 |     :---:      |     :---:      |:---         |
 | -r     | --record  | If you want to save a OAK-D and reference video in videos folder |
 | -f     | --recordframes  | If record Videos enable, set the frame rate ( default is 4 for better performance ) |
-| -b     | --bluetoothname  | The name of the bluetooth device to connect ( default is D-Gloves ) |
+| -b     | --bluetoothname  | The name of the bluetooth device to connect ( default is AI-Bracelet ) |
 | -i     | --invertbracelets  | Invert Bracelets set signal left/right |
 
 

@@ -33,7 +33,7 @@ startTimeVF = 0
 ap = argparse.ArgumentParser()
 ap.add_argument("-r", "--record", help="If you want to save a OAK-D and reference video in videos folder", action='store_true')
 ap.add_argument("-f", "--recordframes", help="If record Videos enable, set the frame rate ( default is 4 for better performance )", type=int, default=4)
-ap.add_argument("-b", "--bluetoothname", help="The name of the bluetooth device to connect ( default is D-Gloves )", type=str, default="D-Gloves")
+ap.add_argument("-b", "--bluetoothname", help="The name of the bluetooth device to connect ( default is AI-Bracelet )", type=str, default="AI-Bracelet")
 ap.add_argument("-i", "--invertbracelets", help="Invert Bracelets set signal left/right", action='store_true')
 args = vars(ap.parse_args())
 print (args)

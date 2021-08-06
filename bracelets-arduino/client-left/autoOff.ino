@@ -1,8 +1,4 @@
 
-// int autoOffcounter = 0;
-// int autoOffValue = 10; //Segundos.
-
-
 
 int autoOffSleep() {
   //...
@@ -34,7 +30,7 @@ int autoOffSleep() {
 
 int autoOffSleepBlink() {
   //...
-  // Inicio del thread
+  // start thread
   CThreadBegin();
 
   // bucle infinito del thread
@@ -53,6 +49,6 @@ int autoOffSleepBlink() {
 
      }
   
-  // fin del thread
+  // end of thread
   CThreadEnd();
 }
