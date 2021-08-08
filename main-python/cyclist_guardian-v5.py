@@ -18,7 +18,7 @@ import copy
 
 print("Start script")
 
-maxZDistance = 6000
+
 np_arr1 = np.empty((0,4))
 # [id], X, SumZ, CantZ
 actualFps = 0
@@ -35,6 +35,8 @@ ap.add_argument("-r", "--record", help="If you want to save a OAK-D and referenc
 ap.add_argument("-f", "--recordframes", help="If record Videos enable, set the frame rate ( default is 4 for better performance )", type=int, default=4)
 ap.add_argument("-b", "--bluetoothname", help="The name of the bluetooth device to connect ( default is AI-Bracelet )", type=str, default="AI-Bracelet")
 ap.add_argument("-i", "--invertbracelets", help="Invert Bracelets set signal left/right", action='store_true')
+ap.add_argument("-d", "--maxzdistance", help="maximum recognition distance in cm, default is 6000", type=int, default=6000)
+ap.add_argument("-z", "--zzero", help="Somethimes the distance marks 0, with this param when z is 0 then show like was maxzdistance", action='store_true')
 args = vars(ap.parse_args())
 print (args)
 
@@ -45,6 +47,8 @@ saveVideosFrame = args['recordframes']
 videoFrameCalc = round(1 / saveVideosFrame, 2)
 
 invertbracelets = args['invertbracelets']
+zzero = args['zzero']
+maxZDistance = args['maxzdistance']
 
 #bluetooth data
 BtName = args['bluetoothname']      # Device name
@@ -201,7 +205,7 @@ def calcBtData(x, z):
         btIntesity = 3
     elif z < 4500:
         btIntesity = 2
-    elif z < maxZDistance:
+    elif z <= maxZDistance:
         btIntesity = 1
 
     centerLimit = 20
@@ -321,6 +325,8 @@ with dai.Device(pipeline) as device:
 
             posZ = int(t.spatialCoordinates.z)
             
+            if (posZ == 0 and zzero):
+                posZ = maxZDistance
 
             if t.status.name == "TRACKED" and posZ != 0:
 
@@ -357,7 +363,7 @@ with dai.Device(pipeline) as device:
                 for xa in np_arr1:
                     zCalc = int( xa[2] / xa[3] )
 
-                    if zCalc < maxZDistance:
+                    if zCalc <= maxZDistance:
 
                         x_offset = 300 - (int(xa[1]) + 20)   #0 -> 300
                         y_offset = int( zCalc * 410 / maxZDistance ) + 90 #0 -> 500
